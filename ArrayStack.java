@@ -1,8 +1,16 @@
 public class ArrayStack<T> implements StackInterface<T>{
-    private T[] stack = (T[])new Object[1];
+    private T[] stack;
+
+    public ArrayStack() 
+    {
+        stack = (T[])new Object[0];
+    }
 
     // returns the logical size of the stack
-    public int size() { return stack.length; }
+    public int size() 
+    {
+        return stack.length;
+    }
     
     // tests if this stack is empty
     public boolean empty() 
@@ -22,6 +30,10 @@ public class ArrayStack<T> implements StackInterface<T>{
     // without removing it from the stack
     public T peek() throws StackUnderflowException
     {
+        if(stack.length==0)
+        {
+            throw new StackUnderflowException("Stack has no values.");
+        }
         return stack[stack.length-1];
     }
     
@@ -29,6 +41,10 @@ public class ArrayStack<T> implements StackInterface<T>{
     // and returns that object as the value of this function
     public T pop() throws StackUnderflowException
     {
+        if(stack.length==0)
+        {
+            throw new StackUnderflowException("Stack has no values.");
+        }
         T temp = stack[stack.length-1];
         stack[stack.length-1]=null;
         return temp;
@@ -37,7 +53,7 @@ public class ArrayStack<T> implements StackInterface<T>{
     // pushes an item onto the top of this stack
     public T push(T item)
     {
-        if(stack[stack.length-1]==null)
+        if(stack.length>0&&stack[stack.length-1]==null)
         {
             stack[stack.length-1] = item;
         }
