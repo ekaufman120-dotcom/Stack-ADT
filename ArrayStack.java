@@ -78,7 +78,7 @@ public class ArrayStack<T> implements StackInterface<T>{
     // removes all of the elements from this stack
     public void clear()
     {
-        stack = (T[])new Object[1];
+        stack = (T[])new Object[0];
     }
     
     // returns the 1 based position where an object is on this stack
@@ -87,9 +87,9 @@ public class ArrayStack<T> implements StackInterface<T>{
     {
         for(int i = 0; i < stack.length; i++)
         {
-            if(stack[i].equals(o))
+            if(stack[i]!=null&&stack[i].equals(o))
             {
-                return i;
+                return stack.length-i;
             }
         }
         return -1;

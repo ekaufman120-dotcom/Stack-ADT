@@ -1,16 +1,15 @@
 public class ArrayStackTest {
     public static void main(String[] args)
     {
-        ArrayStack<String> stack = new ArrayStack<>();
+        LinkedStack<String> stack = new LinkedStack<>();
         System.out.println(stack.size());
-        System.out.println(stack.size()!=0);
+        //System.out.println(stack.size()!=0);
         try{
-            stack.push("#1");
-            System.out.println(stack.size());
-            System.out.println(stack.pop());
-            System.out.println(stack.size());
-            stack.push("#2");
-            stack.push("#3");
+            for(int i = 10; i > 0; --i) {
+                stack.push(new String("#"+i));
+                System.out.println(stack.search("#"+(i+1)));
+            }
+            stack.clear();
             System.out.println(stack.size());
         }
         catch(Exception e)
