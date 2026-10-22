@@ -46,7 +46,12 @@ public class ArrayStack<T> implements StackInterface<T>{
             throw new StackUnderflowException("Stack has no values.");
         }
         T temp = stack[stack.length-1];
-        stack[stack.length-1]=null;
+        T[] stack2 = (T[])new Object[stack.length-1];
+        for(int i = 0; i < stack.length-1; i++)
+        {
+            stack2[i]=stack[i];
+        }
+        stack = stack2;
         return temp;
     }
     

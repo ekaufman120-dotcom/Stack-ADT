@@ -5,9 +5,12 @@ public class ArrayStackTest {
         System.out.println(stack.size());
         System.out.println(stack.size()!=0);
         try{
-            stack.push("1");
-            stack.push("2");
-            stack.push("3");
+            stack.push("#1");
+            System.out.println(stack.size());
+            System.out.println(stack.pop());
+            System.out.println(stack.size());
+            stack.push("#2");
+            stack.push("#3");
             System.out.println(stack.size());
         }
         catch(Exception e)
